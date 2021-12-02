@@ -15,9 +15,17 @@
 			            @endphp
 
 						<input type="hidden" name="target" value="{{$guru->user_id}}">
+						<table class="table table-bordered">
+						  <thead>
+						    <tr>
+						      <th scope="col">#</th>
+						      <th scope="col">Pertanyaan - Bobot (1 sangat buruk - 10 sangat baik)</th>
+						    </tr>
+						  </thead>
+						  <tbody>
 						@foreach($pertanyaan as $key => $pertanyaans)
 
-						<div class="form-group">
+						<!-- <div class="form-group"> -->
 							@php
 								$nama = \App\User::find($guru->user_id);
 
@@ -27,13 +35,30 @@
 									$replace = str_replace(" A ", " ".Auth::user()->name." ", $pertanyaans->pertanyaan);
 								}
 							@endphp
-							<label>{{$replace}}</label>
+							<!-- <label>{{$replace}}</label> -->
 							<input type="hidden" name="pertanyaanid[]" value="1">
-						</div>
+						<!-- </div> -->
 
-						<div class="form-group">
-							<label class="form-label">Bobot (1 sangat buruk - 10 sangat baik)</label>
-							<div class="selectgroup w-100">
+						    <tr>
+						      <th scope="row">{{ $loop->iteration }}</th>
+						      <td colspan="2">{{$replace}}</td>
+						    </tr>
+						    <tr>
+						      <th scope="row">Bobot</th>
+						      <td colspan="2">
+						      	<select class="form-control" name="pertanyaan[{{$pertanyaans->id}}]">
+						      		<option value="5">1</option>
+						      		<option value="2">2</option>
+						      		<option value="3">3</option>
+						      		<option value="4">4</option>
+						      		<option value="5">5</option>
+						      		<option value="6">6</option>
+						      		<option value="7">7</option>
+						      		<option value="8">8</option>
+						      		<option value="9">9</option>
+						      		<option value="10">10</option>
+						      	</select>
+						      	<!-- <div class="selectgroup w-100">
 								<label class="selectgroup-item">
 									<input type="radio" name="pertanyaan[{{$pertanyaans->id}}]" value="5" class="selectgroup-input" checked>
 									<span class="selectgroup-button">1</span>
@@ -74,17 +99,26 @@
 									<input type="radio" name="pertanyaan[{{$pertanyaans->id}}]" value="10" class="selectgroup-input">
 									<span class="selectgroup-button">10</span>
 								</label>
-							</div>
-						</div>
-						@endforeach
+							</div> -->
+						      </td>
+						    </tr>
+						  @endforeach
+						  </tbody>
+						</table>
+
+						<!-- <div class="form-group">
+							<label class="form-label">Bobot (1 sangat buruk - 10 sangat baik)</label>
+							
+						</div> -->
+						<button type="submit" class="btn btn-primary" onclick="nilai()"><i class="fa fa-add">Submit</i></button>
 					</div>
 				</form>
 
-				<div class="form-row" style="float: right;">
-					<div class="form-group" style="float: right;">
-						<button type="submit" class="btn btn-primary" style="float: right;" onclick="nilai()"><i class="fa fa-add">Submit</i></button>
-					</div>
-				</div>
+				<!-- <div class="form-row"> -->
+					<!-- <div class="form-group"> -->
+						
+					<!-- </div> -->
+				<!-- </div> -->
 			</div>
 		</div>
 	</div>

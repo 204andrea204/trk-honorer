@@ -116,4 +116,11 @@
         );
     </script>
 @endif
+@if (session('null'))
+    <script>
+        $(document).ready(
+            swal('Anda belum ditunjuk untuk memilih!', 'Silakan klik tombol ok!', 'error')
+        );
+    </script>
+@endif
 @endsection

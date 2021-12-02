@@ -51,6 +51,101 @@
 							</div>
 						</div>
 						<div class="form-group">
+							<label>Penilai 1</label>
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<div class="input-group-text">
+										<i class="fas fa-user"></i>
+									</div>
+								</div>
+								<select class="form-control" name="penilai_1">
+									<option selected>Silakan Pilih</option>
+									@foreach($users as $user)
+										@php
+											$jabatan = \App\Katejabatan::where('id', $user->jabatan_id)->first();
+										@endphp
+									<option value="{{$user->id}}">{{$user->name}} - {{$jabatan->nama}}</option>
+									@endforeach
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>Penilai 2</label>
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<div class="input-group-text">
+										<i class="fas fa-user"></i>
+									</div>
+								</div>
+								<select class="form-control" name="penilai_2">
+									<option selected>Silakan Pilih</option>
+									@foreach($users as $user)
+										@php
+											$jabatan = \App\Katejabatan::where('id', $user->jabatan_id)->first();
+										@endphp
+									<option value="{{$user->id}}">{{$user->name}} - {{$jabatan->nama}}</option>
+									@endforeach
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>Penilai 3</label>
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<div class="input-group-text">
+										<i class="fas fa-user"></i>
+									</div>
+								</div>
+								<select class="form-control" name="penilai_3">
+									<option selected>Silakan Pilih</option>
+									@foreach($users as $user)
+										@php
+											$jabatan = \App\Katejabatan::where('id', $user->jabatan_id)->first();
+										@endphp
+									<option value="{{$user->id}}">{{$user->name}} - {{$jabatan->nama}}</option>
+									@endforeach
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>Penilai 4</label>
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<div class="input-group-text">
+										<i class="fas fa-user"></i>
+									</div>
+								</div>
+								<select class="form-control" name="penilai_4">
+									<option selected>Silakan Pilih</option>
+									@foreach($users as $user)
+										@php
+											$jabatan = \App\Katejabatan::where('id', $user->jabatan_id)->first();
+										@endphp
+									<option value="{{$user->id}}">{{$user->name}} - {{$jabatan->nama}}</option>
+									@endforeach
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>Penilai 5</label>
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<div class="input-group-text">
+										<i class="fas fa-user"></i>
+									</div>
+								</div>
+								<select class="form-control" name="penilai_5">
+									<option selected>Silakan Pilih</option>
+									@foreach($users as $user)
+										@php
+											$jabatan = \App\Katejabatan::where('id', $user->jabatan_id)->first();
+										@endphp
+									<option value="{{$user->id}}">{{$user->name}} - {{$jabatan->nama}}</option>
+									@endforeach
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
 							<label>Tanggal Mulai</label>
 							<div class="input-group">
 								<div class="input-group-prepend">

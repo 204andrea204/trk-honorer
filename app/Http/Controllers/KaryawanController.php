@@ -64,6 +64,9 @@ class KaryawanController extends Controller
 
     public function lanjut_penilaian_karyawan()
     {
+        eif (Auth::user()->status_penilaian == "isi") {
+            return redirect('karyawan')->with('isi', 'Login Successfully!');
+        }
         $karyawan = Jadwal::where('id', 2)->first();
 
         $pertanyaan = Pertanyaan::all();

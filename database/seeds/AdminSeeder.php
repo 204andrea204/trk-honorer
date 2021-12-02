@@ -126,7 +126,7 @@ class AdminSeeder extends Seeder
                 'updated_at' => date("Y-m-d H:i:s")
             ],
             [
-                'name' => 'Aroh Celaten1',
+                'name' => 'Amir',
                 'nik' => '00022111',
                 'nip' => '00022111',
                 'alamat' => 'xxx',
@@ -141,7 +141,7 @@ class AdminSeeder extends Seeder
                 'updated_at' => date("Y-m-d H:i:s")
             ],
             [
-                'name' => 'Aroh Celaten4',
+                'name' => 'Amad',
                 'nik' => '00022333',
                 'nip' => '00022333',
                 'alamat' => 'xxx',
@@ -156,7 +156,7 @@ class AdminSeeder extends Seeder
                 'updated_at' => date("Y-m-d H:i:s")
             ],
             [
-                'name' => 'Aroh Celaten4',
+                'name' => 'Arif',
                 'nik' => '00022444',
                 'nip' => '00022444',
                 'alamat' => 'xxx',
@@ -166,6 +166,36 @@ class AdminSeeder extends Seeder
                 'status_penilaian' => '',
                 'foto' => '',
                 'email' => 'guru5@seeder.com',
+                'password' => Bcrypt('guru'),
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s")
+            ],
+            [
+                'name' => 'Agus',
+                'nik' => '00041444',
+                'nip' => '0002131444',
+                'alamat' => 'xxx',
+                'notlp' => 6200022,
+                'jabatan_id' => '4',
+                'role' => '3',
+                'status_penilaian' => '',
+                'foto' => '',
+                'email' => 'guru6@seeder.com',
+                'password' => Bcrypt('guru'),
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s")
+            ],
+            [
+                'name' => 'Amsel',
+                'nik' => '0004861444',
+                'nip' => '0002561444',
+                'alamat' => 'xxx',
+                'notlp' => 6200022,
+                'jabatan_id' => '4',
+                'role' => '3',
+                'status_penilaian' => '',
+                'foto' => '',
+                'email' => 'guru7@seeder.com',
                 'password' => Bcrypt('guru'),
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s")
@@ -224,27 +254,6 @@ class AdminSeeder extends Seeder
             [
                 'name' => 2022,
                 'keterangan' => 'Semester 2',
-                'created_at' => date("Y-m-d H:i:s"),
-                'updated_at' => date("Y-m-d H:i:s")
-            ]
-        ]);
-
-        DB::table('jadwals')->insert([
-            [
-                'user_id' => 3,
-                'tahun_akademik_id' => 1,
-                'tgl_awal_isi' => '2021-06-05',
-                'tgl_akhir_isi' => '2021-06-30',
-                'tipe' => 'guru',
-                'created_at' => date("Y-m-d H:i:s"),
-                'updated_at' => date("Y-m-d H:i:s")
-            ],
-            [
-                'user_id' => 1,
-                'tahun_akademik_id' => 1,
-                'tgl_awal_isi' => '2021-06-05',
-                'tgl_akhir_isi' => '2021-06-30',
-                'tipe' => 'karyawan',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s")
             ]

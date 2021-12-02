@@ -19,7 +19,10 @@ class GuruController extends Controller
     }
 
     public function penilaian_guru(){
-        $guru = Jadwal::where('id', 1)->first();
+        $guru = Jadwal::where('id', Auth::user()->jadwal_id)->first();
+        if($guru == null){
+            return redirect('guru')->with('null', 'Login Successfully!');
+        }
         if(date('Y-m-d') > $guru->tgl_akhir_isi){
             return redirect('guru')->with('expired', 'Login Successfully!');
         }elseif(Auth::user()->status_penilaian == "isi"){
@@ -62,6 +65,9 @@ class GuruController extends Controller
     }
 
     public function lanjut_penilaian_guru(){
+        if(Auth::user()->status_penilaian == "isi"){
+            return redirect('guru')->with('isi', 'Login Successfully!');
+        }
         $guru = Jadwal::where('id', 1)->first();
         //cara itung bobot
         // $tes = Penilaian::where('userid', 1)->where('tanggal', '18 Mei 2021')->sum('bobot');

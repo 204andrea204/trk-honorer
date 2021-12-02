@@ -19,7 +19,12 @@ class CreateJadwalsTable extends Migration
             $table->bigInteger('tahun_akademik_id')->unsigned();
             $table->string('tgl_awal_isi');
             $table->string('tgl_akhir_isi');
-            $table->string('tipe');
+            $table->string('tipe');            
+            $table->string('penilai_1');
+            $table->string('penilai_2');
+            $table->string('penilai_3');
+            $table->string('penilai_4');
+            $table->string('penilai_5');
             $table->timestamps();
 
 
