@@ -95,6 +95,7 @@ class GuruController extends Controller
             $penilaian->tanggal = date('Y-m-d');
 
             $penilaian->bobot = $bobot;
+            $penilaian->jadwal_id = Auth::user()->jadwal_id;
             $penilaian->save();
             
             $isi = User::find(Auth::user()->id);

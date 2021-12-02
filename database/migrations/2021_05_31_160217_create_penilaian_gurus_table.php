@@ -19,6 +19,7 @@ class CreatePenilaianGurusTable extends Migration
             $table->string('target');
             $table->string('tanggal');
             $table->bigInteger('bobot');
+            $table->string('jadwal_id');
             $table->timestamps();
         });
     }

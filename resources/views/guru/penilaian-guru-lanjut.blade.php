@@ -11,7 +11,7 @@
 					@csrf
 					<div class="card-body">
 						@php
-			              $guru = \App\Jadwal::where('tipe', "guru")->first();
+			              $guru = \App\Jadwal::find(Auth::user()->jadwal_id);
 			            @endphp
 
 						<input type="hidden" name="target" value="{{$guru->user_id}}">
@@ -108,7 +108,7 @@
 
 						<!-- <div class="form-group">
 							<label class="form-label">Bobot (1 sangat buruk - 10 sangat baik)</label>
-							
+						
 						</div> -->
 						<button type="submit" class="btn btn-primary" onclick="nilai()"><i class="fa fa-add">Submit</i></button>
 					</div>
