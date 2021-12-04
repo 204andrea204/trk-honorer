@@ -30,7 +30,7 @@ class JadwalController extends Controller
     public function process_add_guru(Request $request)
     {
         $cek = Jadwal::where('tipe', "guru")->first();
-        if ($cek == null) {
+
             $id = Jadwal::create($request->all())->id;
 
             $user1 = User::find($request->penilai_1);
@@ -52,10 +52,10 @@ class JadwalController extends Controller
             $user5 = User::find($request->penilai_5);
             $user5->jadwal_id = $id;
             $user5->save();
-        } else {
-            $cek->update($request->all());
-            DB::table('users')->update(array('status_penilaian' => "Kosong"));
-        }
+
+            // $cek->update($request->all());
+            // DB::table('users')->update(array('status_penilaian' => "Kosong"));
+
         return redirect('/master/jadwal');
     }
 
