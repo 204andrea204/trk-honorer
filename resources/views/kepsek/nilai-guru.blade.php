@@ -92,7 +92,11 @@
                   <tr>
                     @if($penilai_1->role == 3)
                     <td>{{$loop->iteration}}</td>
-                    <td><a href="" data-toggle="modal" data-target="#exampleModal">{{$target->name}}</a></td>
+                    <td>
+                      @if(!empty($target->name))
+                        <a href="" data-toggle="modal" data-target="#exampleModal">{{$target->name}}</a>
+                      @endif
+                    </td>
                     <td>{{$penilaian->tanggal}}</td>
                     @else
                     @endif
@@ -104,6 +108,7 @@
             </div>
           </div>
         </section>
+        @if(!empty($target->name))
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -129,6 +134,7 @@
             </div>
           </div>
         </div>
+        @endif
 @endsection
 @section('css')
 <!-- CSS Libraries -->

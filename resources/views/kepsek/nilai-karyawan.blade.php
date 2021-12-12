@@ -82,15 +82,24 @@
                 <tbody>
                   @foreach($penilaians_karyawan as $penilaian)
                   @php
-                    $penilai = \App\User::find($penilaian->userid);
-                    $target = \App\User::find($penilaian->target);
+                    $jadwal = \App\Jadwal::find($penilaian->jadwal_id);
+                    $target = \App\User::find($jadwal->user_id);
+                    $penilai_1 = \App\User::find($jadwal->penilai_1);
+                    $penilai_2 = \App\User::find($jadwal->penilai_2);
+                    $penilai_3 = \App\User::find($jadwal->penilai_3);
+                    $penilai_4 = \App\User::find($jadwal->penilai_4);
+                    $penilai_5 = \App\User::find($jadwal->penilai_5);
+                    $bobot1 = \App\PenilaianGuru::where('target', $penilaian->target)->sum('bobot');
                   @endphp
                   <tr>
-                    @if($penilai->role == 4)
+                    @if($penilai_1->role == 4)
                     <td>{{$loop->iteration}}</td>
-                    <td>{{$target->name}}</td>
-                    <td>{{$penilai->name}}</td>
-                    <td>{{$penilaian->bobot}}</td>
+                    <td>
+                      @if(!empty($target->name))
+                        <a href="" data-toggle="modal" data-target="#exampleModal">{{$target->name}}</a>
+                      @else
+                        <
+                    </td>
                     <td>{{$penilaian->tanggal}}</td>
                     @else
                     @endif
@@ -102,6 +111,33 @@
             </div>
           </div>
         </section>
+        @if(!empty($target->name))
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Detail Data</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                Target &ensp;&ensp;&ensp;&ensp;: {{$target->name}}<br>
+                Total Bobot: {{$bobot1}}<br>
+                Penilai &ensp;&ensp;&ensp;&ensp;: - {{$penilai_1->name}} <br>
+                &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; - {{$penilai_2->name}} <br>
+                &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; - {{$penilai_3->name}} <br>
+                &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; - {{$penilai_4->name}} <br>
+                &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; - {{$penilai_5->name}} <br>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+              </div>
+            </div>
+          </div>
+        </div>
+        @endif
 @endsection
 @section('css')
 <!-- CSS Libraries -->

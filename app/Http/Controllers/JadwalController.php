@@ -62,11 +62,28 @@ class JadwalController extends Controller
     public function process_add_karyawan(Request $request)
     {
         $cek = Jadwal::where('tipe', "karyawan")->first();
-        if ($cek) {
-            $cek->update($request->all());
-        } else {
-            Jadwal::create($request->all());
-        }
+            
+            $id = Jadwal::create($request->all())->id;
+
+            $user1 = User::find($request->penilai_1);
+            $user1->jadwal_id = $id;
+            $user1->save();
+
+            $user2 = User::find($request->penilai_2);
+            $user2->jadwal_id = $id;
+            $user2->save();
+
+            $user3 = User::find($request->penilai_3);
+            $user3->jadwal_id = $id;
+            $user3->save();
+
+            $user4 = User::find($request->penilai_4);
+            $user4->jadwal_id = $id;
+            $user4->save();
+
+            $user5 = User::find($request->penilai_5);
+            $user5->jadwal_id = $id;
+            $user5->save();
         return redirect('/master/jadwal');
     }
 }
